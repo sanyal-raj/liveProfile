@@ -79,10 +79,10 @@ const init = async (id) => {
     const actionLinks = {
         /* link, isExternal, subtext */
         'Cyg': ['./about.html', false],
-        'Lyr': ['//give.ucdavis.edu/VCSA/125342', true, 'KARIM'],
+        'Lyr': ['./connect.html', false, 'Connect Me'],
         'Dra': ['./gallery.html', false, 'my projects'],
-        'UMi': ['//github.com/roboads', true],
-        'UMa': ['//www.linkedin.com/in/sarah-yuniar', true],
+        'UMi': ['//github.com/sanyal-raj', true],
+        'UMa': ['//www.linkedin.com/in/sanyalraj', true],
     }
 
     svg.append('defs').append('svg').attr('viewBox', '0 0 14 12').attr('id', 'ext-link-svg')

@@ -1,0 +1,466 @@
+/* ═══════════════════════════════════════════
+   GAME UI — CONNECT PAGE STYLESHEET
+   Inspired by sci-fi HUD / RPG interfaces
+   ═══════════════════════════════════════════ */
+
+/* --- Design Tokens --- */
+:root {
+    --bg-dark: #0a0a1a;
+    --bg-panel: rgba(10, 15, 30, 0.85);
+    --bg-panel-hover: rgba(15, 22, 45, 0.92);
+    --border-glow: rgba(255, 165, 0, 0.3);
+    --border-dim: rgba(255, 255, 255, 0.06);
+    --accent: #ffa500;
+    --accent-bright: #ffcc33;
+    --accent-dim: rgba(255, 165, 0, 0.15);
+    --common: #22c55e;
+    --text-primary: #e8e8f0;
+    --text-secondary: #8888aa;
+    --text-muted: #555577;
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+    --panel-radius: 12px;
+    --glow-sm: 0 0 8px rgba(255, 165, 0, 0.2);
+    --glow-md: 0 0 20px rgba(255, 165, 0, 0.15);
+}
+
+/* --- Base Reset & Body --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* --- Background Effects --- */
+.grid-bg {
+    position: fixed;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255,165,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,165,0,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.scanline-overlay {
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.05) 2px,
+        rgba(0,0,0,0.05) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- HUD Navigation Bar --- */
+.hud-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(8, 8, 20, 0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-glow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    z-index: 1000;
+    box-shadow: var(--glow-sm);
+}
+
+.hud-back {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    transition: all 0.2s ease;
+}
+
+.hud-back:hover {
+    color: var(--accent-bright);
+    text-shadow: 0 0 12px var(--accent);
+}
+
+.hud-back-icon {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.hud-back:hover .hud-back-icon {
+    transform: translateX(-4px);
+}
+
+.hud-title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--text-primary);
+}
+
+.hud-blink {
+    color: var(--accent);
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.hud-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--common);
+    letter-spacing: 0.05em;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--common);
+    box-shadow: 0 0 8px var(--common);
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 6px var(--common); }
+    50% { box-shadow: 0 0 16px var(--common); }
+}
+
+/* --- Main Layout --- */
+.game-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 2rem 4rem 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Character Card (Left Sidebar) --- */
+.character-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--panel-radius);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--glow-md);
+    height: fit-content;
+}
+
+.hud-header-label {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.name-plate h1 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #ffffff;
+    margin: 0;
+}
+
+.class-title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.role-sub {
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-top: 0;
+}
+
+/* Connection Status Block */
+.connection-status-panel {
+    border-top: 1px solid var(--border-dim);
+    border-bottom: 1px solid var(--border-dim);
+    padding: 1rem 0;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.status-lbl {
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+}
+
+.status-val {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.status-val.active {
+    color: var(--common);
+}
+
+.status-val.speed {
+    color: var(--accent);
+}
+
+.status-val.coord {
+    color: var(--text-primary);
+}
+
+/* Contact Links */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-dim);
+    border-radius: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.contact-btn:hover {
+    background: var(--accent-dim);
+    border-color: var(--border-glow);
+    color: var(--accent);
+    transform: translateX(4px);
+}
+
+.contact-icon {
+    width: 1.2rem;
+    text-align: center;
+}
+
+/* ═══════════════ RIGHT COLUMN PANELS ═══════════════ */
+.game-panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--panel-radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.game-panel:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--glow-md);
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 165, 0, 0.04);
+    border-bottom: 1px solid var(--border-dim);
+}
+
+.panel-icon {
+    color: var(--accent);
+}
+
+.panel-header h2 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin: 0;
+}
+
+.panel-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-glow), transparent);
+}
+
+.panel-body {
+    padding: 2rem;
+}
+
+.form-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* ═══════════════ FORM FIELDS ═══════════════ */
+.hud-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+}
+
+.form-group input, 
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-dim);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.25s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(255, 165, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Status Notifications */
+.form-status-msg {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    display: none;
+}
+
+.form-status-msg:not(:empty) {
+    display: block;
+}
+
+.form-status-msg.success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid var(--common);
+    color: var(--common);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.1);
+}
+
+.form-status-msg.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.1);
+}
+
+/* Action button */
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    margin-top: 0.5rem;
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, #ff8c00, #ffa500);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
+}
+
+.action-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.4);
+}
+
+.form-group-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width: 768px) {
+    .game-layout {
+        grid-template-columns: 1fr;
+        padding: 80px 1rem 2rem 1rem;
+    }
+
+    .form-group-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

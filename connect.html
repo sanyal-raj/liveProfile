@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Connect with Sanyal Raj Thadathil — Project Director. Send an email message directly or reach out on social platforms." />
+	<link rel="stylesheet" href="./reset.css" />
+	<link rel="stylesheet" href="./connect.css" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap"
+		rel="stylesheet">
+	<title>Connect // Sanyal Raj Thadathil</title>
+</head>
+
+<body>
+	<!-- Animated scanline overlay -->
+	<div class="scanline-overlay"></div>
+	<!-- Grid background -->
+	<div class="grid-bg"></div>
+
+	<!-- Top HUD bar -->
+	<nav class="hud-bar">
+		<a href="./index.html" class="hud-back" id="nav-back">
+			<span class="hud-back-icon">◀</span>
+			<span>STAR MAP</span>
+		</a>
+		<div class="hud-title">
+			<span class="hud-blink">▣</span> TRANSMISSION CHANNEL <span class="hud-blink">▣</span>
+		</div>
+		<div class="hud-status">
+			<span class="status-dot online"></span>
+			<span>SECURE CONNECTION</span>
+		</div>
+	</nav>
+
+	<main class="game-layout">
+		<!-- ═══════════════ LEFT COLUMN: CONNECTION INFO ═══════════════ -->
+		<aside class="character-card">
+			<div class="card-border-glow"></div>
+			
+			<div class="hud-header-label">COMMUNICATION HUB</div>
+			<div class="name-plate">
+				<h1>SANYAL RAJ</h1>
+				<p class="class-title">THADATHIL</p>
+				<p class="role-sub">Project Director</p>
+			</div>
+
+			<!-- Connection status block -->
+			<div class="connection-status-panel">
+				<div class="status-item">
+					<span class="status-lbl">COMMS STATUS</span>
+					<span class="status-val active">ONLINE</span>
+				</div>
+				<div class="status-item">
+					<span class="status-lbl">RESPONSE RATE</span>
+					<span class="status-val speed">&lt; 24 HOURS</span>
+				</div>
+				<div class="status-item">
+					<span class="status-lbl">LOCATION COORDINATES</span>
+					<span class="status-val coord">DUBAI, UAE (UTC+4)</span>
+				</div>
+			</div>
+
+			<!-- All social connection points -->
+			<div class="contact-links">
+				<a href="mailto:sanyalraj.t@gmail.com" class="contact-btn" id="conn-email">
+					<span class="contact-icon">✉</span> sanyalraj.t@gmail.com
+				</a>
+				<a href="tel:+971506760708" class="contact-btn" id="conn-phone">
+					<span class="contact-icon">☎</span> +971 50 676 0708
+				</a>
+				<a href="https://linkedin.com/in/sanyalraj" target="_blank" class="contact-btn" id="conn-linkedin">
+					<span class="contact-icon">◆</span> LinkedIn
+				</a>
+				<a href="https://github.com/sanyal-raj" target="_blank" class="contact-btn" id="conn-github">
+					<span class="contact-icon">◇</span> GitHub
+				</a>
+			</div>
+		</aside>
+
+		<!-- ═══════════════ RIGHT COLUMN: GMAIL CONTACT FORM ═══════════════ -->
+		<div class="panels-column">
+			<section class="game-panel">
+				<div class="panel-header">
+					<span class="panel-icon">◈</span>
+					<h2>ESTABLISH CONNECTION</h2>
+					<div class="panel-line"></div>
+				</div>
+				<div class="panel-body">
+					<p class="form-desc">
+						Input your credentials and message below to transmit an email directly to Sanyal's inbox.
+					</p>
+
+					<!-- Formspree Endpoint Form -->
+					<form id="contact-form" action="https://formspree.io/f/xnjkndqk" method="POST" class="hud-form">
+						<!-- Formspree ID input -->
+						<input type="hidden" id="formspree-id" value="xnjkndqk" />
+						
+						<div class="form-group">
+							<label for="user-name">SENDER NAME / IDENTIFIER</label>
+							<input type="text" id="user-name" name="name" required placeholder="e.g. COMMANDER SHEPARD" autocomplete="off" />
+						</div>
+
+						<div class="form-group-row">
+							<div class="form-group">
+								<label for="user-email">EMAIL ADDRESS</label>
+								<input type="email" id="user-email" name="email" required placeholder="e.g. shepard@alliance.com" autocomplete="off" />
+							</div>
+							<div class="form-group">
+								<label for="user-phone">CONTACT NUMBER</label>
+								<input type="tel" id="user-phone" name="phone" required placeholder="e.g. +971 50 000 0000" autocomplete="off" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="user-subject">TRANSMISSION SUBJECT</label>
+							<input type="text" id="user-subject" name="_subject" required placeholder="e.g. INQUIRY ABOUT NEW SPATIAL PROJECT" autocomplete="off" />
+						</div>
+
+						<div class="form-group">
+							<label for="user-message">TRANSMISSION DATA / BODY</label>
+							<textarea id="user-message" name="message" required rows="6" placeholder="Enter transmission message detail..."></textarea>
+						</div>
+
+						<button type="submit" class="action-btn primary" id="btn-transmit">
+							<span>⚡</span> TRANSMIT MESSAGE
+						</button>
+
+						<div id="form-status" class="form-status-msg"></div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<!-- Floating particles -->
+	<canvas id="particles"></canvas>
+
+	<script>
+		// Particle system
+		const canvas = document.getElementById('particles');
+		const ctx = canvas.getContext('2d');
+		let particles = [];
+
+		function resize() {
+			canvas.width = window.innerWidth;
+			canvas.height = document.body.scrollHeight;
+		}
+		resize();
+		window.addEventListener('resize', resize);
+
+		class Particle {
+			constructor() { this.reset(); }
+			reset() {
+				this.x = Math.random() * canvas.width;
+				this.y = Math.random() * canvas.height;
+				this.size = Math.random() * 2 + 0.5;
+				this.speedY = -(Math.random() * 0.3 + 0.1);
+				this.speedX = (Math.random() - 0.5) * 0.2;
+				this.opacity = Math.random() * 0.5 + 0.1;
+			}
+			update() {
+				this.y += this.speedY;
+				this.x += this.speedX;
+				if (this.y < 0) { this.y = canvas.height; this.x = Math.random() * canvas.width; }
+			}
+			draw() {
+				ctx.beginPath();
+				ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+				ctx.fillStyle = `rgba(255, 165, 0, ${this.opacity})`;
+				ctx.fill();
+			}
+		}
+
+		for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+		function animate() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			particles.forEach(p => { p.update(); p.draw(); });
+			requestAnimationFrame(animate);
+		}
+		animate();
+
+		// Handle Form Submission to launch Formspree post
+		document.getElementById('contact-form').addEventListener('submit', async function(e) {
+			e.preventDefault();
+			
+			const formSpreeId = document.getElementById('formspree-id').value.trim();
+			const statusMsg = document.getElementById('form-status');
+			const submitBtn = document.getElementById('btn-transmit');
+
+			if (formSpreeId === 'YOUR_FORMSPREEE_ID_HERE') {
+				statusMsg.className = 'form-status-msg error';
+				statusMsg.innerHTML = '◈ SYSTEM ERROR: FORMSPREE ID NOT CONFIGED. CONTACT WEB ADMIN.';
+				return;
+			}
+
+			// Change button state
+			submitBtn.disabled = true;
+			submitBtn.innerHTML = '<span>⚡</span> TRANSMITTING...';
+			statusMsg.className = 'form-status-msg';
+			statusMsg.innerHTML = '';
+
+			const formData = {
+				name: document.getElementById('user-name').value.trim(),
+				email: document.getElementById('user-email').value.trim(),
+				phone: document.getElementById('user-phone').value.trim(),
+				_subject: document.getElementById('user-subject').value.trim(),
+				message: document.getElementById('user-message').value.trim()
+			};
+
+			try {
+				const response = await fetch(`https://formspree.io/f/${formSpreeId}`, {
+					method: 'POST',
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(formData)
+				});
+
+				if (response.ok) {
+					statusMsg.className = 'form-status-msg success';
+					statusMsg.innerHTML = '◈ TRANSMISSION SECURED: MESSAGE ROUTED TO DIRECT INBOX.';
+					document.getElementById('contact-form').reset();
+				} else {
+					const data = await response.json();
+					statusMsg.className = 'form-status-msg error';
+					statusMsg.innerHTML = `◈ ERROR: ${data.errors ? data.errors.map(err => err.message).join(', ') : 'FAILED TO TRANSMIT DATA'}`;
+				}
+			} catch (error) {
+				statusMsg.className = 'form-status-msg error';
+				statusMsg.innerHTML = '◈ TRANSMISSION FAILED: NETWORK SIGNAL LOST.';
+			} finally {
+				submitBtn.disabled = false;
+				submitBtn.innerHTML = '<span>⚡</span> TRANSMIT MESSAGE';
+			}
+		});
+	</script>
+</body>
+
+</html>
