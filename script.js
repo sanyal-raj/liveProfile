@@ -81,7 +81,7 @@ const init = async (id) => {
         'Cyg': ['./about.html', false],
         'Lyr': ['./connect.html', false, 'Connect Me'],
         'Dra': ['./gallery.html', false, 'my projects'],
-        'UMi': ['//github.com/sanyal-raj', true],
+        'UMi': ['./lab.html', false, 'Engineering Lab'],
         'UMa': ['//www.linkedin.com/in/sanyalraj', true],
     }
 

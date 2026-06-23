@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./reset.css" />
+	<link rel="stylesheet" href="./lab.css" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap"
+		rel="stylesheet">
+	<title>Engineering Lab</title>
+</head>
+
+<body>
+	<canvas id="bg-canvas"></canvas>
+
+	<nav class="top-bar">
+		<a href="./index.html" class="back-link">◀ STAR MAP</a>
+		<div class="top-bar-status">
+			<span class="status-indicator"></span>
+			<span class="status-text">R&D LAB — ONLINE</span>
+		</div>
+	</nav>
+
+	<header class="hero">
+		<div class="hero-glitch" data-text="Engineering Lab">Engineering Lab</div>
+		<p class="hero-sub">Circuits • Concepts • Research • Prototypes • Demos</p>
+		<div class="hero-specs">
+			<span>v2.4.1</span>
+			<span>|</span>
+			<span>SYSTEM READY</span>
+		</div>
+	</header>
+
+	<section class="section" id="videos">
+		<div class="section-header">
+			<h2>// PROJECT DEMOS</h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="video-grid">
+			<div class="video-card youtube-card" data-video="NODD8JwxhuA">
+				<div class="video-thumb">
+					<div class="placeholder-vid v1" style="background-image:url(https://img.youtube.com/vi/NODD8JwxhuA/maxresdefault.jpg);background-size:cover;background-position:center;"></div>
+					<div class="play-overlay">▶</div>
+					<div class="yt-hover-frame"></div>
+				</div>
+				<h3>Web-based ROS Control Portal</h3>
+				<p class="video-desc">Full-stack robotics interface: ROS2 + Rosbridge, SLAM mapping, autonomous navigation, keyboard teleoperation, multi-goal path planning, E-stop, and live telemetry — all in a browser.</p>
+			</div>
+			<div class="video-card youtube-card" data-video="304UPcs5T58">
+				<div class="video-thumb">
+					<div class="placeholder-vid v2" style="background-image:url(https://img.youtube.com/vi/304UPcs5T58/maxresdefault.jpg);background-size:cover;background-position:center;"></div>
+					<div class="play-overlay">▶</div>
+					<div class="yt-hover-frame"></div>
+				</div>
+				<h3>AI Avatar Portal - Real Time</h3>
+				<p class="video-desc">Interact with our real-time digital human avatar for seamless visitor navigation and support.</p>
+			</div>
+			<div class="video-card youtube-card" data-video="MteoDYVD4Z0">
+				<div class="video-thumb">
+					<div class="placeholder-vid v3" style="background-image:url(https://img.youtube.com/vi/MteoDYVD4Z0/maxresdefault.jpg);background-size:cover;background-position:center;"></div>
+					<div class="play-overlay">▶</div>
+					<div class="yt-hover-frame"></div>
+				</div>
+				<h3>Telepresence on Digital Signage</h3>
+				<p class="video-desc">Remote real-time human interaction through digital signage for product marketing. Live video, AI-driven engagement, and dynamic content in retail spaces.</p>
+			</div>
+		</div>
+
+		<div class="modal-overlay" id="video-modal">
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="modal-title">Web-based ROS Control Portal</span>
+					<div class="modal-controls">
+						<button class="modal-sound-btn" id="modal-sound-toggle" title="Toggle sound">🔇</button>
+						<button class="modal-close-btn" id="modal-close">✕</button>
+					</div>
+				</div>
+				<div class="modal-body" id="modal-body">
+					<div id="modal-player"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" id="research">
+		<div class="section-header">
+			<h2>// CONCEPTS & RESEARCH</h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="research-grid">
+			<article class="research-card">
+				<div class="card-tags">
+					<span class="tag">AI</span>
+					<span class="tag">Computer Vision</span>
+				</div>
+				<h3>Edge-AI Object Detection for Autonomous Navigation</h3>
+				<p class="card-abstract">Real-time YOLOv8 deployment on NVIDIA Jetson Nano with TensorRT optimization achieving 45 FPS for indoor robotic navigation.</p>
+				<div class="card-meta">
+					<span>2025</span>
+					<a href="#" class="card-link">Read More →</a>
+				</div>
+			</article>
+			<article class="research-card">
+				<div class="card-tags">
+					<span class="tag">IoT</span>
+					<span class="tag">Embedded Systems</span>
+				</div>
+				<h3>LoRa Mesh Network for Distributed Sensor Arrays</h3>
+				<p class="card-abstract">Multi-hop LoRaWAN topology with adaptive data rate for environmental monitoring across 2 km industrial zones.</p>
+				<div class="card-meta">
+					<span>2024</span>
+					<a href="#" class="card-link">Read More →</a>
+				</div>
+			</article>
+			<article class="research-card">
+				<div class="card-tags">
+					<span class="tag">Robotics</span>
+					<span class="tag">SLAM</span>
+				</div>
+				<h3>Low-Cost 2D LiDAR SLAM on ESP32</h3>
+				<p class="card-abstract">Hector SLAM implementation on ESP32-S3 with RPlidar A1 for sub-50 mm mapping accuracy in warehouse environments.</p>
+				<div class="card-meta">
+					<span>2024</span>
+					<a href="#" class="card-link">Read More →</a>
+				</div>
+			</article>
+			<article class="research-card">
+				<div class="card-tags">
+					<span class="tag">AI</span>
+					<span class="tag">NLP</span>
+				</div>
+				<h3>Lightweight LLM for Embedded Voice Commands</h3>
+				<p class="card-abstract">Distilled TinyLLaMA model running on Raspberry Pi 5 for real-time voice control of robotic manipulators.</p>
+				<div class="card-meta">
+					<span>2025</span>
+					<a href="#" class="card-link">Read More →</a>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<section class="section" id="papers">
+		<div class="section-header">
+			<h2>// PAPERS & DOWNLOADS</h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="papers-grid">
+			<div class="paper-card">
+				<div class="paper-icon">📄</div>
+				<div class="paper-info">
+					<h3>Edge-AI for Autonomous Navigation</h3>
+					<p>IEEE format — 8 pages, 2.4 MB</p>
+				</div>
+				<a href="#" class="download-btn">⬇ PDF</a>
+			</div>
+			<div class="paper-card">
+				<div class="paper-icon">📄</div>
+				<div class="paper-info">
+					<h3>LoRa Mesh Network Topology</h3>
+					<p>Conference paper — 6 pages, 1.8 MB</p>
+				</div>
+				<a href="#" class="download-btn">⬇ PDF</a>
+			</div>
+			<div class="paper-card">
+				<div class="paper-icon">📄</div>
+				<div class="paper-info">
+					<h3>Low-Cost SLAM on ESP32</h3>
+					<p>Technical report — 12 pages, 3.1 MB</p>
+				</div>
+				<a href="#" class="download-btn">⬇ PDF</a>
+			</div>
+			<div class="paper-card">
+				<div class="paper-icon">📄</div>
+				<div class="paper-info">
+					<h3>Embedded LLM for Voice Control</h3>
+					<p>Preprint — 10 pages, 2.7 MB</p>
+				</div>
+				<a href="#" class="download-btn">⬇ PDF</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" id="circuits">
+		<div class="section-header">
+			<h2>// CIRCUIT DESIGNS</h2>
+			<div class="section-line"></div>
+		</div>
+		<div class="circuit-grid">
+			<div class="circuit-card">
+				<div class="circuit-preview">
+					<div class="placeholder-graphic pcb-1"></div>
+					<div class="circuit-overlay">
+						<span>H-Bridge Motor Driver</span>
+					</div>
+				</div>
+				<div class="circuit-info">
+					<h3>H-Bridge Motor Driver</h3>
+					<p>Dual-channel L298N-based driver with flyback diodes and optocoupler isolation.</p>
+				</div>
+			</div>
+			<div class="circuit-card">
+				<div class="circuit-preview">
+					<div class="placeholder-graphic pcb-2"></div>
+					<div class="circuit-overlay">
+						<span>LiDAR Signal Cond.</span>
+					</div>
+				</div>
+				<div class="circuit-info">
+					<h3>LiDAR Signal Conditioning</h3>
+					<p>Op-amp based filter and comparator chain for TF-Luna distance sensor.</p>
+				</div>
+			</div>
+			<div class="circuit-card">
+				<div class="circuit-preview">
+					<div class="placeholder-graphic pcb-3"></div>
+					<div class="circuit-overlay">
+						<span>ESP32 Sensor Node</span>
+					</div>
+				</div>
+				<div class="circuit-info">
+					<h3>ESP32 Sensor Node</h3>
+					<p>Low-power IoT node with BME280, ADS1115, and LoRa transceiver.</p>
+				</div>
+			</div>
+			<div class="circuit-card">
+				<div class="circuit-preview">
+					<div class="placeholder-graphic pcb-4"></div>
+					<div class="circuit-overlay">
+						<span>Buck Converter 5V/3A</span>
+					</div>
+				</div>
+				<div class="circuit-info">
+					<h3>Buck Converter 5V/3A</h3>
+					<p>LM2596-based step-down with LC filter and overcurrent protection.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="lab-footer">
+		<p>Engineering Lab © 2025 — Built with 🔧 by Sanyal Raj</p>
+	</footer>
+
+	<script>
+		let pendingYT = null;
+		function onYouTubeIframeAPIReady() {
+			if (pendingYT) {
+				ytPlayer = new YT.Player('modal-player', {
+					videoId: pendingYT,
+					playerVars: {
+						autoplay: 1,
+						mute: 1,
+						controls: 1,
+						rel: 0,
+						modestbranding: 1
+					},
+					events: {
+						onReady: () => {
+							playerReady = true;
+							soundOn = false;
+							ytPlayer.mute();
+							soundToggle.textContent = '🔇';
+						}
+					}
+				});
+				pendingYT = null;
+			}
+		}
+	</script>
+	<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+	const canvas = document.getElementById('bg-canvas');
+		const ctx = canvas.getContext('2d');
+		let w, h;
+
+		function resize() {
+			w = canvas.width = window.innerWidth;
+			h = canvas.height = document.body.scrollHeight;
+		}
+		resize();
+		window.addEventListener('resize', resize);
+
+		const nodes = [];
+		const NODE_COUNT = 60;
+
+		class Node {
+			constructor() {
+				this.reset();
+			}
+			reset() {
+				this.x = Math.random() * w;
+				this.y = Math.random() * h;
+				this.vx = (Math.random() - 0.5) * 0.6;
+				this.vy = (Math.random() - 0.5) * 0.6;
+				this.r = Math.random() * 2 + 1;
+			}
+			update() {
+				this.x += this.vx;
+				this.y += this.vy;
+				if (this.x < 0 || this.x > w) this.vx *= -1;
+				if (this.y < 0 || this.y > h) this.vy *= -1;
+			}
+			draw() {
+				ctx.beginPath();
+				ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+				ctx.fillStyle = '#00e5ff';
+				ctx.fill();
+			}
+		}
+
+		for (let i = 0; i < NODE_COUNT; i++) nodes.push(new Node());
+
+		function animate() {
+			ctx.clearRect(0, 0, w, h);
+			for (const n of nodes) {
+				n.update();
+				n.draw();
+			}
+			for (let i = 0; i < nodes.length; i++) {
+				for (let j = i + 1; j < nodes.length; j++) {
+					const dx = nodes[i].x - nodes[j].x;
+					const dy = nodes[i].y - nodes[j].y;
+					const dist = Math.sqrt(dx * dx + dy * dy);
+					if (dist < 180) {
+						ctx.beginPath();
+						ctx.moveTo(nodes[i].x, nodes[i].y);
+						ctx.lineTo(nodes[j].x, nodes[j].y);
+						ctx.strokeStyle = `rgba(0, 229, 255, ${1 - dist / 180})`;
+						ctx.lineWidth = 0.6;
+						ctx.stroke();
+					}
+				}
+			}
+			requestAnimationFrame(animate);
+		}
+		animate();
+
+		// ── YouTube Hover & Modal ──
+		let ytPlayer = null;
+		let playerReady = false;
+		let soundOn = false;
+
+		const modal = document.getElementById('video-modal');
+		const modalTitle = document.querySelector('.modal-title');
+		const modalClose = document.getElementById('modal-close');
+		const soundToggle = document.getElementById('modal-sound-toggle');
+
+		document.querySelectorAll('.youtube-card').forEach(card => {
+			const videoId = card.dataset.video;
+			const hoverFrame = card.querySelector('.yt-hover-frame');
+			const title = card.querySelector('h3')?.textContent;
+			let hoverIframe = null;
+			let hoverTimer = null;
+
+			function createHoverPlayer() {
+				if (hoverIframe) return;
+				hoverIframe = document.createElement('iframe');
+				hoverIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1`;
+				hoverIframe.allow = 'autoplay';
+				hoverIframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;z-index:2;';
+				hoverFrame.appendChild(hoverIframe);
+			}
+
+			function removeHoverPlayer() {
+				if (hoverIframe) {
+					hoverIframe.remove();
+					hoverIframe = null;
+				}
+			}
+
+			card.addEventListener('mouseenter', () => {
+				clearTimeout(hoverTimer);
+				hoverTimer = setTimeout(createHoverPlayer, 200);
+			});
+
+			card.addEventListener('mouseleave', () => {
+				clearTimeout(hoverTimer);
+				removeHoverPlayer();
+			});
+
+			card.addEventListener('click', () => {
+				modalTitle.textContent = title;
+				modal.classList.add('open');
+				document.body.style.overflow = 'hidden';
+
+				if (playerReady && ytPlayer) {
+					ytPlayer.loadVideoById(videoId);
+					ytPlayer.mute();
+					soundOn = false;
+					soundToggle.textContent = '🔇';
+				} else if (typeof YT !== 'undefined' && YT.loaded) {
+					ytPlayer = new YT.Player('modal-player', {
+						videoId: videoId,
+						playerVars: {
+							autoplay: 1,
+							mute: 1,
+							controls: 1,
+							rel: 0,
+							modestbranding: 1
+						},
+						events: {
+							onReady: () => {
+								playerReady = true;
+								soundOn = false;
+								ytPlayer.mute();
+								soundToggle.textContent = '🔇';
+							}
+						}
+					});
+				} else {
+					pendingYT = videoId;
+				}
+			});
+		});
+
+		function closeModal() {
+			modal.classList.remove('open');
+			document.body.style.overflow = '';
+			if (ytPlayer) ytPlayer.stopVideo();
+		}
+
+		modalClose?.addEventListener('click', closeModal);
+		modal?.addEventListener('click', (e) => {
+			if (e.target === modal) closeModal();
+		});
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') closeModal();
+		});
+
+		soundToggle?.addEventListener('click', () => {
+			if (!playerReady || !ytPlayer) return;
+			soundOn = !soundOn;
+			if (soundOn) {
+				ytPlayer.unMute();
+				soundToggle.textContent = '🔊';
+			} else {
+				ytPlayer.mute();
+				soundToggle.textContent = '🔇';
+			}
+		});
+	</script>
+</body>
+
+</html>
