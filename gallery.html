@@ -173,31 +173,32 @@
 			<!-- Project 5 -->
 			<article class="project-card">
 				<div class="card-banner-wrapper">
-					<img src="./assets/proj5.jpeg" alt="Video Analytics & Crowd Insights" class="card-img"
-						onerror="this.src='https://placehold.co/800x300/0a0f1e/ffa500?text=Crowd+Insights'" />
+					<img src="./assets/proj5.jpeg" alt="RTSP AI Edge Analytics" class="card-img"
+						onerror="this.src='https://placehold.co/800x300/0a0f1e/ffa500?text=RTSP+AI+Analytics'" />
 					<button class="action-btn play-btn floating-play"
-						data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+						data-video="https://www.youtube.com/embed/hb6hmva_E_g">
 						<span>▶</span> PLAY VIDEO
 					</button>
 				</div>
 				<div class="project-content">
-					<span class="project-category">Computer Vision & VMS</span>
-					<h2 class="project-name">Video Analytics & Crowd Insights</h2>
+					<span class="project-category">Edge AI & Video Analytics</span>
+					<h2 class="project-name">RTSP AI Edge Analytics</h2>
 					<p class="project-description">
-						Developed and integrated edge computer vision modules on active digital displays to analyze
-						visitor demographics, dwell times, and attention spans, optimizing content delivery in
-						real-time.
+						An end-to-end edge AI analytics platform running on NVIDIA Jetson Orin Nano that ingests RTSP streams from existing IP cameras and performs real-time inference using optimized TensorRT models. Detected events are stored locally with metadata for fast retrieval via a responsive local web dashboard.
 					</p>
 					<ul class="project-highlights">
-						<li>Integrated YOLO-based object detection and tracking.</li>
-						<li>Designed dashboards using RESTful APIs to feed analytics to client portals.</li>
-						<li>Successfully deployed across large-scale shopping malls and exhibitions.</li>
+						<li>Ingestion Engine: GStreamer pipelines for H.264/H.265 RTSP stream decoding.</li>
+						<li>AI Pipeline: NVIDIA TensorRT with YOLOv8/v10 on Jetson Orin Nano GPU for real-time scene understanding.</li>
+						<li>Local Storage: NVMe storage with SQLite/PostgreSQL indexing for fast event search.</li>
+						<li>Local Web UI: Responsive dashboard (Streamlit/React) for live feeds, camera config, and AI metadata visualization.</li>
 					</ul>
 					<div class="project-tech">
-						<span class="tech-tag">OpenCV</span>
-						<span class="tech-tag">YOLO</span>
-						<span class="tech-tag">NVIDIA Jetson</span>
-						<span class="tech-tag">RESTful APIs</span>
+						<span class="tech-tag">GStreamer</span>
+						<span class="tech-tag">TensorRT</span>
+						<span class="tech-tag">NVIDIA Jetson Orin</span>
+						<span class="tech-tag">YOLOv8/v10</span>
+						<span class="tech-tag">Streamlit / React</span>
+						<span class="tech-tag">SQLite / PostgreSQL</span>
 					</div>
 				</div>
 			</article>
@@ -205,34 +206,152 @@
 			<!-- Project 6 -->
 			<article class="project-card">
 				<div class="card-banner-wrapper">
-					<img src="./assets/proj6.jpeg" alt="EV Smart Kiosk & IoT Nodes" class="card-img"
-						onerror="this.src='https://placehold.co/800x300/0a0f1e/ffa500?text=EV+Smart+Kiosk'" />
+					<img src="./assets/proj6.jpeg" alt="Indoor LED Signage Wall" class="card-img"
+						onerror="this.src='https://placehold.co/800x300/0a0f1e/ffa500?text=LED+Signage+Wall'" />
 					<button class="action-btn play-btn floating-play"
-						data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+						data-video="https://www.youtube.com/embed/JzDXV5Z6DLM">
 						<span>▶</span> PLAY VIDEO
 					</button>
 				</div>
 				<div class="project-content">
-					<span class="project-category">EV & Custom Tech</span>
-					<h2 class="project-name">EV Smart Kiosk & IoT Nodes</h2>
+					<span class="project-category">Indoor LED & AV Integration</span>
+					<h2 class="project-name">Indoor LED Signage Wall</h2>
 					<p class="project-description">
-						Engineered connected IoT and control interfaces integrated directly within electric vehicle
-						charging hubs and smart parking structures, displaying real-time metrics and dynamic spatial
-						experiences.
+						Delivery of a large-scale, high-definition indoor LED signage wall for a high-profile corporate environment. Focused on seamless visual performance, ease of long-term maintenance, and high-fidelity signal distribution.
 					</p>
 					<ul class="project-highlights">
-						<li>Custom embedded firmware development for telemetry and system health status.</li>
-						<li>Seamless integration with mobile booking APIs and payment gateways.</li>
-						<li>Engineered ruggedized displays designed for extreme ambient temperatures in the GCC.</li>
+						<li>2.5mm Pixel Pitch (P2.5) Indoor LED for optimal viewing at professional office distances.</li>
+						<li>Front-maintenance mounting system for individual module servicing without dismantling.</li>
+						<li>High-performance Video Processor for custom aspect ratios, multi-window layouts, and seamless source switching.</li>
+						<li>HDMI over Cat6 distribution backbone maintaining signal integrity over distance.</li>
+						<li>Edge-to-edge color & brightness uniformity calibration for a seamless single-canvas look.</li>
+						<li>1:1 pixel mapping configuration for ultra-sharp text and graphics.</li>
 					</ul>
 					<div class="project-tech">
-						<span class="tech-tag">Embedded C++</span>
-						<span class="tech-tag">MQTT</span>
-						<span class="tech-tag">CAN Bus</span>
-						<span class="tech-tag">Firmware Development</span>
+						<span class="tech-tag">P2.5 Indoor LED</span>
+						<span class="tech-tag">Video Processor</span>
+						<span class="tech-tag">HDMI over Cat6</span>
+						<span class="tech-tag">Front Maintenance</span>
+						<span class="tech-tag">Color Calibration</span>
 					</div>
 				</div>
 			</article>
+
+			<!-- Project 7 -->
+			<article class="project-card">
+				<div class="card-banner-wrapper">
+					<img src="./assets/proj7.jpeg" alt="Curved Outdoor LED Signage" class="card-img"
+						onerror="this.src='https://placehold.co/800x300/0a0f1e/ffa500?text=Curved+Outdoor+LED'" />
+				</div>
+				<div class="project-content">
+					<span class="project-category">Outdoor LED & Signage</span>
+					<h2 class="project-name">Curved Outdoor LED Signage</h2>
+					<p class="project-description">
+						Premium custom-engineered curved LED display installed at the Hasaniccor Building, Al Barsha 1, Dubai — strategically positioned facing Sheikh Zayed Road as a high-impact digital landmark.
+					</p>
+					<ul class="project-highlights">
+						<li>Precision-engineered curved LED modules for a seamless panoramic surface integrated with the building architecture.</li>
+						<li>Integrated 3-unit split AC thermal management system for reliable operation in extreme Dubai climate.</li>
+						<li>On-premises CMS for secure, low-latency content scheduling, updates, and real-time monitoring.</li>
+						<li>Automated timer system for optimized power consumption and municipal lighting regulation compliance.</li>
+						<li>Wider viewing angles ensured by curved design for high-fidelity visibility along Sheikh Zayed Road.</li>
+					</ul>
+					<div class="project-tech">
+						<span class="tech-tag">Curved LED Modules</span>
+						<span class="tech-tag">On-Prem CMS</span>
+						<span class="tech-tag">Thermal Management</span>
+						<span class="tech-tag">Automated Scheduling</span>
+						<span class="tech-tag">Outdoor Durability</span>
+					</div>
+				</div>
+			</article>
+
+			<!-- Project 8 -->
+			<article class="project-card">
+				<div class="card-banner-wrapper">
+					<img src="./assets/proj8.jpeg" alt="AI Signage Intelligence" class="card-img"
+						onerror="this.src='https://placehold.co/800x300/0a0f1e/ffa500?text=AI+Signage+Intelligence'" />
+					<button class="action-btn play-btn floating-play" data-video="https://www.youtube.com/embed/kdY9W3CMCoE">
+						<span>▶</span> PLAY VIDEO
+					</button>
+				</div>
+				<div class="project-content">
+					<span class="project-category">Edge AI & Smart Kiosk</span>
+					<h2 class="project-name">AI Signage Intelligence</h2>
+					<p class="project-description">
+						Transforms traditional digital signage into an intelligent, interactive customer engagement platform powered by NVIDIA Jetson Orin Edge AI. Real-time camera analytics detect age, gender, emotions, dwell time, and crowd metrics to dynamically personalize content — all processed locally for low latency and privacy.
+					</p>
+					<ul class="project-highlights">
+						<li>Real-time attribute detection: age group, gender, emotions, attention time, visitor count, queue monitoring.</li>
+						<li>Dynamic content personalization — kiosk adapts promotions based on who is viewing (e.g., children's shoes for a young girl, men's offers for an adult male).</li>
+						<li>Interactive Smart Kiosk: auto-wake on approach, touch navigation, personalized recommendations, AI assistant launch.</li>
+						<li>Socket.IO real-time streaming to a centralized web dashboard with live analytics, gender/age distribution, peak hours, and multi-site monitoring.</li>
+						<li>Privacy-focused local processing on NVIDIA Jetson Orin with scalable multi-camera architecture.</li>
+					</ul>
+					<div class="project-tech">
+						<span class="tech-tag">NVIDIA Jetson Orin</span>
+						<span class="tech-tag">Edge AI</span>
+						<span class="tech-tag">Real-Time Inference</span>
+						<span class="tech-tag">Socket.IO</span>
+						<span class="tech-tag">Computer Vision</span>
+						<span class="tech-tag">Smart Kiosk</span>
+						<span class="tech-tag">Web Dashboard</span>
+					</div>
+				</div>
+			</article>
+
+		<!-- Project 9
+			<article class="project-card">
+				<div class="card-banner-wrapper">
+					<img src="./assets/proj9.jpeg" alt="Project 9" class="card-img"
+						onerror="this.src='https://placehold.co/800x300/0a0f1e/ffa500?text=Project+9'" />
+					<button class="action-btn play-btn floating-play" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+						<span>▶</span> PLAY VIDEO
+					</button>
+				</div>
+				<div class="project-content">
+					<span class="project-category">Category</span>
+					<h2 class="project-name">Project 9</h2>
+					<p class="project-description">Project description coming soon.</p>
+					<ul class="project-highlights">
+						<li>Highlight 1</li>
+						<li>Highlight 2</li>
+						<li>Highlight 3</li>
+					</ul>
+					<div class="project-tech">
+						<span class="tech-tag">Tech 1</span>
+						<span class="tech-tag">Tech 2</span>
+						<span class="tech-tag">Tech 3</span>
+					</div>
+				</div>
+			</article>
+
+		Project 10
+			<article class="project-card">
+				<div class="card-banner-wrapper">
+					<img src="./assets/proj10.jpeg" alt="Project 10" class="card-img"
+						onerror="this.src='https://placehold.co/800x300/0a0f1e/ffa500?text=Project+10'" />
+					<button class="action-btn play-btn floating-play" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+						<span>▶</span> PLAY VIDEO
+					</button>
+				</div>
+				<div class="project-content">
+					<span class="project-category">Category</span>
+					<h2 class="project-name">Project 10</h2>
+					<p class="project-description">Project description coming soon.</p>
+					<ul class="project-highlights">
+						<li>Highlight 1</li>
+						<li>Highlight 2</li>
+						<li>Highlight 3</li>
+					</ul>
+					<div class="project-tech">
+						<span class="tech-tag">Tech 1</span>
+						<span class="tech-tag">Tech 2</span>
+						<span class="tech-tag">Tech 3</span>
+					</div>
+				</div>
+			</article>
+		-->
 		</div>
 
 		<footer class="gallery-footer">
